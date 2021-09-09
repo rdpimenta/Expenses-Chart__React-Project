@@ -5,8 +5,10 @@ import ChartBar from "./ChartBar";
 import "./Chart.css";
 
 const Chart = (props) => {
-  const dataPointValues = props.dataPoints.map((dataPoint) => dataPoint.value);
-  const maxValue = Math.max(...dataPointValues);
+  let maxValue = 0;
+  for (const month of props.dataPoints) {
+    maxValue += month.value;
+  }
 
   return (
     <div className="chart">
